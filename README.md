@@ -11,7 +11,9 @@ for Tryton server
 
 * that works out of the box,
 * follows [Best practices](https://docs.docker.com/articles/dockerfile_best-practices/) for Dockerfiles,
-* and is meant to be extended to fit your personal needs. For further steps see below.
+* is meant to be extended to fit your personal needs. For further steps see below.
+
+The [Tryton Server image](https://registry.hub.docker.com/u/mbsolutions/tryton-server/) is built automatically from [GitHub](https://github.com/mbehrle/docker-tryton-server).
 
 ## Installation
 
