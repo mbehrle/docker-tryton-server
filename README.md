@@ -10,14 +10,31 @@ The image provided by this Dockerfile is a minimalistic Docker container
 for Tryton server
 
 * that works out of the box,
-* follows [Best practices](https://docs.docker.com/articles/dockerfile_best-practices/)
+* follows [Best practices](https://docs.docker.com/articles/dockerfile_best-practices/) for Dockerfiles,
 * and is meant to be extended to fit your personal needs. For further steps see below.
+
+## Installation
+
+If you don't have yet a running docker installation, install first `docker` with
+
+    apt-get install docker.io
+
+Add the user, that will use docker, to the docker group
+
+    useradd myuser docker
+
+Note: You may have to relogin before the group settings will take effect.
+
 
 ## Usage
 
 Fetch the repository from docker
 
     docker pull mbsolutions/tryton-server
+
+Note: To fetch and work with specific versions add the relative tag to the command like
+
+		docker pull mbsolutions/tryton-server:3.2
 
 Run a new container using the image
 
@@ -33,7 +50,7 @@ Run a new container using the image
 
 ## Accessing the docker container
 
-You can access the docker container and work from within it.::
+You can access the docker container and work from within it.
 
     docker exec -it mbsolutions/tryton-server /bin/bash
 
