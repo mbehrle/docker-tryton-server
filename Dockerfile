@@ -1,11 +1,11 @@
-# tryton-server 3.2
+# tryton-server 3.4
 #
 
 FROM debian:jessie
 MAINTAINER Mathias Behrle <mbehrle@m9s.biz>
 
 # Set Tryton major variable for reuse
-ENV T_MAJOR 3.2
+ENV T_MAJOR 3.4
 
 # Setup environment and UTF-8 locale
 ENV DEBIAN_FRONTEND noninteractive
@@ -53,10 +53,9 @@ RUN apt-get update && apt-get install -y \
 	&& rm -rf /var/lib/apt/lists/*
 
 # Listen on all interfaces
-RUN sed -i "s/jsonrpc = localhost/jsonrpc = [::]/" /etc/trytond.conf
-# We set explicitely sqlite as db_type to have the container work out of the box (defaults to postgresql in the container)
-# trytond configuration has to be overwritten by downstream containers anyway
-RUN sed -i "s/#db_type = postgresql/db_type = sqlite/" /etc/trytond.conf
+RUN sed -i "/^#listen = \[::\]:8000/s/^#//" /etc/tryton/trytond.conf
+# Enable default admin password to be able to create databases from the client out of the box
+RUN sed -i "/^#super_pwd = jkUbZGvFNeugk/s/^#//" /etc/tryton/trytond.conf
 
 EXPOSE 	8000
-CMD ["gosu", "tryton", "usr/bin/trytond", "-c", "/etc/trytond.conf", "-v"]
+CMD ["gosu", "tryton", "usr/bin/trytond", "-c", "/etc/tryton/trytond.conf", "-v"]
