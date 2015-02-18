@@ -18,13 +18,11 @@ ENV LC_ALL en_US.UTF-8
 #RUN sed -i "s/http\.debian\.net/apt-cacher:9999/" /etc/apt/sources.list
 
 # Do not use Recommends (otherwise Tryton packages will install postgresql)
-RUN echo 'Apt::Install-Recommends "false";' >> /etc/apt/apt.conf.d/99apt_recommends
-
 # Grab gosu for easy step-down from root
 # (gosu snippets taken from https://github.com/docker-library/postgres/blob/master/9.4/Dockerfile)
 # Add key and sources for gosu and debian.tryton.org
 RUN gpg --keyserver pool.sks-keyservers.net --recv-keys B42F6819007F00F88E364FD4036A9C25BF357DD4
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends \
 	curl ca-certificates locales \
 	&& rm -rf /var/lib/apt/lists/* \
 	&& curl -o /usr/local/bin/gosu -SL "https://github.com/tianon/gosu/releases/download/1.2/gosu-$(dpkg --print-architecture)" \
@@ -40,7 +38,7 @@ RUN apt-get update && apt-get install -y \
 	&& apt-get purge -y --auto-remove curl ca-certificates
 
 # Install additional distribution packages
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --no-install-recommends \
 	python-psycopg2 \
 	python-levenshtein \
 	python-bcrypt \
