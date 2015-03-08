@@ -49,6 +49,17 @@ Run a new container using the image
   of containers to the host machine see the
   [ports documentation](http://docs.docker.io/use/port_redirection/#port-redirection).
 
+## Environment Variables
+
+This image image uses several environment variables which are not required,
+but may significantly aid in using the image.
+
+### `TRYTOND_PASSWORD`
+
+This environment variable is recommended, if you want to be able to do
+database management from the client side.
+
+Use "-e TRYTOND_PASSWORD=password" to set it in "docker run".
 
 ## Accessing the docker container
 
@@ -62,7 +73,14 @@ available to you.
 ## Extending this image
 
 This docker image is a minimal base on which you should extend and write
-your own. The following example steps would be required to say
+your own.
+
+If you would like to do additional initialization `before` the startup of the server
+in an image derived from this one, add an `*.sh` script under `/docker-entrypoint-init.d`.
+The entrypoint script will will source any `*.sh` script found in that directory
+to do further initialization before starting the service.
+
+The following example steps would be required to say
 make your setup work with postgres and install the sale module.
 
 

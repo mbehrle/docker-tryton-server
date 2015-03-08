@@ -1,5 +1,4 @@
 # tryton-server 3.4
-#
 
 FROM debian:jessie
 MAINTAINER Mathias Behrle <mbehrle@m9s.biz>
@@ -15,7 +14,7 @@ ENV LC_ALL en_US.UTF-8
 
 # Use our local cache
 #RUN echo 'Acquire::http { Proxy "http://apt-cacher:9999"; };' >> /etc/apt/apt.conf.d/01proxy (#778532)
-#RUN sed -i "s/http\.debian\.net/apt-cacher:9999/" /etc/apt/sources.list
+RUN sed -i "s/http\.debian\.net/apt-cacher:9999/" /etc/apt/sources.list
 
 # Do not use Recommends (otherwise Tryton packages will install postgresql)
 # Grab gosu for easy step-down from root
@@ -50,10 +49,19 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 	unoconv \
 	&& rm -rf /var/lib/apt/lists/*
 
-# Listen on all interfaces
-RUN sed -i "/^#listen = \[::\]:8000/s/^#//" /etc/tryton/trytond.conf
-# Enable default admin password to be able to create databases from the client out of the box
-RUN sed -i "/^#super_pwd = jkUbZGvFNeugk/s/^#//" /etc/tryton/trytond.conf
+# Default environment for the server
+ENV TRYTOND_CONFIG=/etc/tryton/trytond.conf
+#ENV TRYTOND_DATABASE_URI=sqlite://
+ENV TRYTOND_DATA=/var/lib/tryton
+ENV TRYTOND_PASSFILE=/tmp/trytonpass
+
+# Add a directory to process setup scripts for the container
+RUN mkdir /docker-entrypoint-init.d
 
 EXPOSE 	8000
-CMD ["gosu", "tryton", "usr/bin/trytond", "-c", "/etc/tryton/trytond.conf", "-v"]
+
+COPY docker-entrypoint.sh /
+
+ENTRYPOINT ["/docker-entrypoint.sh"]
+
+CMD ["trytond"]
