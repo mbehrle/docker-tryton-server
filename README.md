@@ -104,7 +104,10 @@ make your setup work with postgres and install the sale module.
 
 This image was built at [MBSolutions](http://www.m9s.biz).
 
-Parts of the setup were adopted from [tryton](https://github.com/openlabs/tryton) by [Openlabs](http://www.openlabs.co.in).
+Parts of the setup were adopted from
+
+* [tryton](https://github.com/openlabs/tryton) by [Openlabs](http://www.openlabs.co.in).
+* [postgres](https://github.com/docker-library/postgres/) by [Docker Official Image Packaging for Postgres](https://github.com/docker-library/postgres/).
 
 ## Support
 
