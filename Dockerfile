@@ -13,8 +13,7 @@ ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 
 # Use our local cache
-#RUN echo 'Acquire::http { Proxy "http://apt-cacher:9999"; };' >> /etc/apt/apt.conf.d/01proxy (#778532)
-#RUN sed -i "s/http\.debian\.net/apt-cacher:9999/" /etc/apt/sources.list
+#RUN echo 'Acquire::http { Proxy "http://apt-cacher:9999"; };' >> /etc/apt/apt.conf.d/01proxy
 
 # Do not use Recommends (otherwise Tryton packages will install postgresql)
 # Grab gosu for easy step-down from root
