@@ -1,3 +1,5 @@
+# mbsolutions/tryton-server [![](https://img.shields.io/badge/container-ready-green.svg?style=flat)](https://registry.hub.docker.com/u/mbsolutions/tryton-server/)
+
 # Dockerfile for Tryton Server
 
 ## Supported tags
