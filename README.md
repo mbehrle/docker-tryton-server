@@ -121,3 +121,5 @@ Parts of the setup were adopted from
 ## Support
 
 For any questions about this image and your docker setup contact our [support](mailto:info@m9s.biz).
+
+[![GPL 3 License](https://img.shields.io/badge/license-GPL3-blue.svg?style=flat)](LICENSE)
