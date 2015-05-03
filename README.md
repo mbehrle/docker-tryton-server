@@ -1,5 +1,12 @@
 # Dockerfile for Tryton Server
 
+## Supported tags
+
+- [`latest`](https://github.com/mbehrle/docker-tryton-server/blob/master/Dockerfile)
+- [`3.6`](https://github.com/mbehrle/docker-tryton-server/blob/3.6/Dockerfile)
+- [`3.4`](https://github.com/mbehrle/docker-tryton-server/blob/3.4/Dockerfile)
+- [`3.2`](https://github.com/mbehrle/docker-tryton-server/blob/3.2/Dockerfile)
+
 This Dockerfile contains the steps required to build a working image of
 Tryton server. The build is based on the official
 [debian base image](https://registry.hub.docker.com/_/debian/) on 
