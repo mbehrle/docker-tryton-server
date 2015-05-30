@@ -8,7 +8,7 @@ if [ "$1" = 'trytond' ]; then
 	# sed -i "/^#super_pwd = jkUbZGvFNeugk/s/^#//" $TRYTOND_CONFIG
 	
 	if [ "$TRYTOND_PASSWORD" ]; then
-		echo "$TRYTOND_PASSWORD" > $TRYTOND_PASSFILE
+		echo "$TRYTOND_PASSWORD" > $TRYTONPASSFILE
 	else
 		cat >&2 <<-'EOWARN'
 			****************************************************
