@@ -30,7 +30,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 	&& chmod +x /usr/local/bin/gosu \
 	&& curl -o /etc/apt/debian.tryton.org-archive.asc -SL "http://debian.tryton.org/debian/debian.tryton.org-archive.asc" \
 	&& apt-key add /etc/apt/debian.tryton.org-archive.asc \
-	&& curl -o /etc/apt/sources.list.d/tryton-stretch-$T_MAJOR.list http://debian.tryton.org/debian/tryton-stretch-$T_MAJOR.list \
+	&& curl -o /etc/apt/sources.list.d/tryton-jessie-$T_MAJOR.list http://debian.tryton.org/debian/tryton-jessie-$T_MAJOR.list \
 	&& curl -o /etc/apt/preferences.d/debian.tryton.org.pref -SL "http://debian.tryton.org/debian/debian.tryton.org.pref" \
 	&& localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8 \
 	&& apt-get purge -y --auto-remove curl ca-certificates
