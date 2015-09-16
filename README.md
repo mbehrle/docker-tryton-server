@@ -58,6 +58,14 @@ Run a new container using the image
   of containers to the host machine see the
   [ports documentation](http://docs.docker.io/use/port_redirection/#port-redirection).
 
+### Database creation
+
+Important: For the creation of new databases with the Tryton client you need to set
+an admin password to be able to access the server. This has to be done in the server
+configuration file (trytond.conf). For security reasons this image doesn't provide
+a default server admin password. Please refer to chapter `Extending this image` how
+to provide a trytond.conf.
+
 ## Environment Variables
 
 This image image uses several environment variables which are not required,
@@ -65,10 +73,10 @@ but may significantly aid in using the image.
 
 ### `TRYTOND_PASSWORD`
 
-This environment variable is recommended, if you want to be able to do
-database management from the client side.
+This environment variable is recommended, if you want to be able to set automatically
+the admin password for new databases.
 
-Use "-e TRYTOND_PASSWORD=password" to set it in "docker run".
+Use "-e TRYTOND_PASSWORD=password" in "docker run".
 
 ## Accessing the docker container
 
@@ -111,7 +119,7 @@ make your setup work with postgres and install the sale module.
 
 ## Authors and Credits
 
-This image was built at [MBSolutions](http://www.m9s.biz).
+This image was built by [MBSolutions](http://www.m9s.biz).
 
 Parts of the setup were adopted from
 
