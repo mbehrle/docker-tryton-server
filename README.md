@@ -2,7 +2,7 @@
 
 This Dockerfile contains the steps required to build a working image of
 Tryton server. The build is based on the official
-[debian base image](https://registry.hub.docker.com/_/debian/) on 
+[Debian base image](https://registry.hub.docker.com/_/debian/) on 
 [Dockerhub](https://docs.docker.com/docker-hub/repos/#repositories) and 
 packages from [Debian Tryton Maintainers](http://tryton.alioth.debian.org/).
 
@@ -10,7 +10,7 @@ The image provided by this Dockerfile is a minimalistic Docker container
 for Tryton server
 
 * that works out of the box,
-* follows [Best practices](https://docs.docker.com/articles/dockerfile_best-practices/) for Dockerfiles,
+* follows [best practices](https://docs.docker.com/articles/dockerfile_best-practices/) for Dockerfiles,
 * is meant to be extended to fit your personal needs. For further steps see below.
 
 The [Tryton Server image](https://registry.hub.docker.com/u/mbsolutions/tryton-server/) is built automatically from [GitHub](https://github.com/mbehrle/docker-tryton-server).
