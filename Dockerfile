@@ -1,10 +1,11 @@
-# tryton-server 3.6
+# tryton-server 3.8
 
 FROM debian:jessie
 MAINTAINER Mathias Behrle <mbehrle@m9s.biz>
 
 # Set Tryton major variable for reuse
-ENV T_MAJOR 3.6
+ENV T_DIST jessie
+ENV T_MAJOR 3.8
 
 # Setup environment and UTF-8 locale
 ENV DEBIAN_FRONTEND noninteractive
@@ -30,7 +31,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 	&& chmod +x /usr/local/bin/gosu \
 	&& curl -o /etc/apt/debian.tryton.org-archive.asc -SL "http://debian.tryton.org/debian/debian.tryton.org-archive.asc" \
 	&& apt-key add /etc/apt/debian.tryton.org-archive.asc \
-	&& curl -o /etc/apt/sources.list.d/tryton-stretch-$T_MAJOR.list http://debian.tryton.org/debian/tryton-stretch-$T_MAJOR.list \
+	&& curl -o /etc/apt/sources.list.d/tryton-$T_DIST-$T_MAJOR.list http://debian.tryton.org/debian/tryton-$T_DIST-$T_MAJOR.list \
 	&& curl -o /etc/apt/preferences.d/debian.tryton.org.pref -SL "http://debian.tryton.org/debian/debian.tryton.org.pref" \
 	&& localedef -i en_US -c -f UTF-8 -A /usr/share/locale/locale.alias en_US.UTF-8 \
 	&& apt-get purge -y --auto-remove curl ca-certificates

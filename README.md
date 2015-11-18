@@ -5,6 +5,7 @@
 ## Supported tags
 
 - [`latest`](https://github.com/mbehrle/docker-tryton-server/blob/master/Dockerfile)
+- [`3.8`](https://github.com/mbehrle/docker-tryton-server/blob/3.8/Dockerfile)
 - [`3.6`](https://github.com/mbehrle/docker-tryton-server/blob/3.6/Dockerfile)
 - [`3.4`](https://github.com/mbehrle/docker-tryton-server/blob/3.4/Dockerfile)
 - [`3.2`](https://github.com/mbehrle/docker-tryton-server/blob/3.2/Dockerfile)
@@ -45,7 +46,7 @@ Fetch the repository from docker
 
 Note: To fetch and work with specific versions add the relative tag to the command like
 
-    docker pull mbsolutions/tryton-server:3.6
+    docker pull mbsolutions/tryton-server:3.8
 
 Run a new container using the image
 
@@ -103,7 +104,7 @@ make your setup work with postgres and install the sale module.
 
     # Tryton Server with Sale module and Postgres
 
-    FROM mbsolutions/tryton-server:3.6
+    FROM mbsolutions/tryton-server:3.8
     MAINTAINER Mathias Behrle <mbehrle@m9s.biz>
 
     # Install additional distribution packages
@@ -111,7 +112,7 @@ make your setup work with postgres and install the sale module.
     tryton-modules-sale \
     && rm -rf /var/lib/apt/lists/*
         
-    # Get a [sample trytond.conf](https://alioth.debian.org/plugins/scmgit/cgi-bin/gitweb.cgi?p=tryton/tryton-server.git;a=blob;f=etc/trytond.conf;hb=refs/heads/debian-stretch-3.6),
+    # Get a [sample trytond.conf](https://alioth.debian.org/plugins/scmgit/cgi-bin/gitweb.cgi?p=tryton/tryton-server.git;a=blob;f=etc/trytond.conf;hb=refs/heads/debian-stretch-3.8),
     # copy it to the directory of your Dockerfile,
     # adjust the settings to your needs (e.g. connection parameters and credentials to your PostgreSQL server)
     # and copy it into the container with
