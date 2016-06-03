@@ -5,6 +5,7 @@
 ## Supported tags
 
 - [`latest`](https://github.com/mbehrle/docker-tryton-server/blob/master/Dockerfile)
+- [`4.0`](https://github.com/mbehrle/docker-tryton-server/blob/4.0/Dockerfile)
 - [`3.8`](https://github.com/mbehrle/docker-tryton-server/blob/3.8/Dockerfile)
 - [`3.6`](https://github.com/mbehrle/docker-tryton-server/blob/3.6/Dockerfile)
 - [`3.4`](https://github.com/mbehrle/docker-tryton-server/blob/3.4/Dockerfile)
@@ -46,7 +47,7 @@ Fetch the repository from docker
 
 Note: To fetch and work with specific versions add the relative tag to the command like
 
-    docker pull mbsolutions/tryton-server:3.8
+    docker pull mbsolutions/tryton-server:4.0
 
 Run a new container using the image
 
@@ -104,7 +105,7 @@ make your setup work with postgres and install the sale module.
 
     # Tryton Server with Sale module and Postgres
 
-    FROM mbsolutions/tryton-server:3.8
+    FROM mbsolutions/tryton-server:4.0
     MAINTAINER Mathias Behrle <mbehrle@m9s.biz>
 
     # Install additional distribution packages

@@ -1,11 +1,11 @@
-# tryton-server 3.8
+# tryton-server 4.0
 
 FROM debian:jessie
 MAINTAINER Mathias Behrle <mbehrle@m9s.biz>
 
 # Set Tryton major variable for reuse
 ENV T_DIST jessie
-ENV T_MAJOR 3.8
+ENV T_MAJOR 4.0
 
 # Setup environment and UTF-8 locale
 ENV DEBIAN_FRONTEND noninteractive
@@ -14,7 +14,7 @@ ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 
 # Use our local cache
-#RUN echo 'Acquire::http { Proxy "http://apt-cacher:9999"; };' >> /etc/apt/apt.conf.d/01proxy
+RUN echo 'Acquire::http { Proxy "http://apt-cacher:9999"; };' >> /etc/apt/apt.conf.d/01proxy
 
 # Do not use Recommends (otherwise Tryton packages will install postgresql)
 # Grab gosu for easy step-down from root
@@ -42,7 +42,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 	python-levenshtein \
 	python-bcrypt \
 	python-pydot \
-	python-webdav \
 	python-psycopg2 \
 	ssl-cert \
 	tryton-server \
