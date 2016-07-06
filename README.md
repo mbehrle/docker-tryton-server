@@ -113,7 +113,7 @@ make your setup work with postgres and install the sale module.
     tryton-modules-sale \
     && rm -rf /var/lib/apt/lists/*
         
-    # Get a [sample trytond.conf](https://alioth.debian.org/plugins/scmgit/cgi-bin/gitweb.cgi?p=tryton/tryton-server.git;a=blob;f=etc/trytond.conf;hb=refs/heads/debian-stretch-3.8),
+    # Get a [sample trytond.conf](https://alioth.debian.org/plugins/scmgit/cgi-bin/gitweb.cgi?p=tryton/tryton-server.git;a=blob_plain;f=debian/trytond.conf;hb=refs/heads/debian), 
     # copy it to the directory of your Dockerfile,
     # adjust the settings to your needs (e.g. connection parameters and credentials to your PostgreSQL server)
     # and copy it into the container with
