@@ -65,7 +65,7 @@ Run a new container using the image
 
 The creation of new databases is done with `trytond-admin` inside the container.
 For more information have a look at the documentation of the
-[Debian package](ttps://alioth.debian.org/plugins/scmgit/cgi-bin/gitweb.cgi?p=tryton/tryton-server.git;a=blob;f=debian/tryton-server.README.Debian;hb=HEAD).
+[Debian package](https://alioth.debian.org/plugins/scmgit/cgi-bin/gitweb.cgi?p=tryton/tryton-server.git;a=blob;f=debian/tryton-server.README.Debian;hb=HEAD "Git Debian Tryton Server README").
 
 ## Environment Variables
 
