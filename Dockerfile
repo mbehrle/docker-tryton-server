@@ -52,7 +52,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 ENV TRYTOND_CONFIG=/etc/tryton/trytond.conf
 #ENV TRYTOND_DATABASE_URI=sqlite://
 ENV TRYTOND_DATA=/var/lib/tryton
-ENV TRYTONPASSFILE=/tmp/trytonpass
 
 # Add a directory to process setup scripts for the container
 RUN mkdir /docker-entrypoint-init.d

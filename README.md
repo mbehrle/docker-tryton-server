@@ -63,23 +63,20 @@ Run a new container using the image
 
 ### Database creation
 
-Important: For the creation of new databases with the Tryton client you need to set
-an admin password to be able to access the server. This has to be done in the server
-configuration file (trytond.conf). For security reasons this image doesn't provide
-a default server admin password. Please refer to chapter `Extending this image` how
-to provide a trytond.conf.
+The creation of new databases is done with `trytond-admin` inside the container.
+For more information have a look at the documentation of the
+[Debian package](ttps://alioth.debian.org/plugins/scmgit/cgi-bin/gitweb.cgi?p=tryton/tryton-server.git;a=blob;f=debian/tryton-server.README.Debian;hb=HEAD).
 
 ## Environment Variables
 
 This image image uses several environment variables which are not required,
 but may significantly aid in using the image.
 
-### `TRYTOND_PASSWORD`
+### `TRYTOND_DATABASE_URI`
 
-This environment variable is recommended, if you want to be able to set automatically
-the admin password for new databases.
+This environment variable can be used to set the database connection.
 
-Use "-e TRYTOND_PASSWORD=password" in "docker run".
+Use "-e TRYTOND_DATABASE_URI=postgresql://user:password@localhost:5432/" in "docker run".
 
 ## Accessing the docker container
 
