@@ -1,11 +1,11 @@
-# tryton-server 4.2
+# tryton-server 4.4
 
 FROM debian:jessie
 MAINTAINER Mathias Behrle <mbehrle@m9s.biz>
 
 # Set Tryton major variable for reuse
 ENV T_DIST jessie
-ENV T_MAJOR 4.2
+ENV T_MAJOR 4.4
 
 # Setup environment and UTF-8 locale
 ENV DEBIAN_FRONTEND noninteractive

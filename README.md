@@ -5,6 +5,7 @@
 ## Supported tags
 
 - [`latest`](https://github.com/mbehrle/docker-tryton-server/blob/master/Dockerfile)
+- [`4.4`](https://github.com/mbehrle/docker-tryton-server/blob/4.4/Dockerfile)
 - [`4.2`](https://github.com/mbehrle/docker-tryton-server/blob/4.2/Dockerfile)
 - [`4.0`](https://github.com/mbehrle/docker-tryton-server/blob/4.0/Dockerfile)
 - [`3.8`](https://github.com/mbehrle/docker-tryton-server/blob/3.8/Dockerfile)
@@ -103,7 +104,7 @@ make your setup work with postgres and install the sale module.
 
     # Tryton Server with Sale module and Postgres
 
-    FROM mbsolutions/tryton-server:4.2
+    FROM mbsolutions/tryton-server:4.4
     MAINTAINER Mathias Behrle <mbehrle@m9s.biz>
 
     # Install additional distribution packages
@@ -128,6 +129,6 @@ Parts of the setup were adopted from
 
 ## Support
 
-For any questions about this image and your docker setup contact our [support](mailto:info@m9s.biz).
+For any questions about this image and your docker setup contact us at [support](mailto:info@m9s.biz).
 
 [![GPL 3 License](https://img.shields.io/badge/license-GPL3-blue.svg?style=flat)](LICENSE)
