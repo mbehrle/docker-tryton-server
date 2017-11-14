@@ -32,11 +32,11 @@ The [Tryton Server image](https://registry.hub.docker.com/u/mbsolutions/tryton-s
 
 If you don't have yet a running docker installation, install first `docker` with
 
-    apt-get install docker.io
+    sudo apt-get install docker.io
 
 Add the user, that will use docker, to the docker group
 
-    useradd myuser docker
+    sudo useradd myuser docker
 
 Note: You may have to relogin before the group settings will take effect.
 
@@ -45,15 +45,15 @@ Note: You may have to relogin before the group settings will take effect.
 
 Fetch the repository from docker
 
-    docker pull mbsolutions/tryton-server
+    sudo docker pull mbsolutions/tryton-server
 
 Note: To fetch and work with specific versions add the relative tag to the command like
 
-    docker pull mbsolutions/tryton-server:4.2
+    sudo docker pull mbsolutions/tryton-server:4.2
 
 Run a new container using the image
 
-    docker run -d -p 8000:8000 mbsolutions/tryton-server
+    sudo docker run -d -p 8000:8000 mbsolutions/tryton-server
 
 * The `-d` option indicates that the container should be run in daemon
   mode.
@@ -83,7 +83,7 @@ Use "-e TRYTOND_DATABASE_URI=postgresql://user:password@localhost:5432/" in "doc
 
 You can access the docker container and work from within it.
 
-    docker exec -it mbsolutions/tryton-server /bin/bash
+    sudo docker exec -it mbsolutions/tryton-server /bin/bash
 
 On execution of the command a new prompt within the container should be
 available to you.
@@ -95,11 +95,12 @@ your own.
 
 If you would like to do additional initialization `before` the startup of the server
 in an image derived from this one, add an `*.sh` script under `/docker-entrypoint-init.d`.
-The entrypoint script will will source any `*.sh` script found in that directory
+The entrypoint script will source any `*.sh` script found in that directory
 to do further initialization before starting the service.
 
-The following example steps would be required to say
-make your setup work with postgres and install the sale module.
+The following example steps would be required to say make your setup work with postgres
+and install the sale module. In case you want install all available modules use tryton-modules-all
+instead.
 
 
     # Tryton Server with Sale module and Postgres

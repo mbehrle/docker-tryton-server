@@ -1,6 +1,8 @@
 #!/bin/bash
 set -e
 
+export TRYTOND_DATABASE_URI
+
 if [ "$1" = 'trytond' ]; then
 	# Listen on all interfaces
 	sed -i "/^#listen = \[::\]:8000/s/^#//" "$TRYTOND_CONFIG"
@@ -15,7 +17,7 @@ if [ "$1" = 'trytond' ]; then
 	# Reset permissions to the data directory
 	chown -R tryton:tryton "$TRYTOND_DATA"
 	
-	exec gosu tryton /usr/bin/trytond -c $TRYTOND_CONFIG -v
+	exec gosu tryton /usr/bin/trytond -c $TRYTOND_CONFIG
 fi
 
 exec "$@"
