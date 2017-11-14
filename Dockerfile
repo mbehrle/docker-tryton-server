@@ -1,11 +1,11 @@
-# tryton-server 4.4
+# tryton-server 4.6
 
 FROM debian:stretch-slim
 MAINTAINER Mathias Behrle <mbehrle@m9s.biz>
 
 # Set Tryton major variable for reuse
 ENV T_DIST stretch
-ENV T_MAJOR 4.4
+ENV T_MAJOR 4.6
 
 # Setup environment and UTF-8 locale
 ENV DEBIAN_FRONTEND noninteractive
